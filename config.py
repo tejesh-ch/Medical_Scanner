@@ -9,15 +9,53 @@ datagen = ImageDataGenerator(
         horizontal_flip = True,
         fill_mode = 'nearest')
 
-for j in range (826):
-    glioma_scan = j + 1
-    img = load_img(f'Training/glioma_tumor/gg ({str(glioma_scan)}).jpg')
+for j in range (1, 827):
+    img = load_img(f'Training/glioma_tumor/glioma_tumor_example_{str(j)}.jpg')
     x = img_to_array(img)
     x = x.reshape((1,) + x.shape)
     i = 0
 
     generated_data = datagen.flow(x, batch_size=1,
                                   save_to_dir='Augmented/glioma_augmented', save_prefix='glioma_tumor', save_format='jpeg')
+    for batch in generated_data:
+        i += 1
+        if i > 20:
+            break
+
+for j in range (1, 823):
+    img = load_img(f'Training/meningioma_tumor/meningioma_tumor_example_{str(j)}.jpg')
+    x = img_to_array(img)
+    x = x.reshape((1,) + x.shape)
+    i = 0
+
+    generated_data = datagen.flow(x, batch_size=1,
+                                  save_to_dir='Augmented/meningioma_augmented', save_prefix='meningioma_tumor', save_format='jpeg')
+    for batch in generated_data:
+        i += 1
+        if i > 20:
+            break
+
+for j in range (1, 397):
+    img = load_img(f'Training/no_tumor/no_tumor_example{str(j)}.jpg')
+    x = img_to_array(img)
+    x = x.reshape((1,) + x.shape)
+    i = 0
+
+    generated_data = datagen.flow(x, batch_size=1,
+                                  save_to_dir='Augmented/no_tumor_augmented', save_prefix='no_tumor', save_format='jpeg')
+    for batch in generated_data:
+        i += 1
+        if i > 27:
+            break
+
+for j in range (1, 828):
+    img = load_img(f'Training/pituitary_tumor/pituitary_tumor_example_{str(j)}.jpg')
+    x = img_to_array(img)
+    x = x.reshape((1,) + x.shape)
+    i = 0
+
+    generated_data = datagen.flow(x, batch_size=1,
+                                  save_to_dir='Augmented/pituitary_augmented', save_prefix='pituitary_tumor', save_format='jpeg')
     for batch in generated_data:
         i += 1
         if i > 20:
