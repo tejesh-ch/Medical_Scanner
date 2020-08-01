@@ -21,4 +21,4 @@ for j in range (826):
     for batch in generated_data:
         i += 1
         if i > 20:
-            brea
+            break
