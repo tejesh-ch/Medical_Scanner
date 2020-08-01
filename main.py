@@ -44,12 +44,13 @@ test_datagen = ImageDataGenerator(rescale = 1./255)
 # generator that will read pictures found and indefinitely generate batches of augmented image data
 train_generator = train_datagen.flow_from_directory(
         'Augmented/glioma_augmented',
+        'Training/glioma_tumor',
         target_size = (150, 150),
         batch_size = batch_size,
         class_mode= 'binary')
 
 validation_generator = test_datagen.flow_from_directory(
-        'Testing/glioma_tumor', # target directory
+        'Testing/no_tumor', # target directory
         target_size=(150, 150), # all images will be resized
         batch_size=batch_size,
         class_mode='binary') # binary labels
