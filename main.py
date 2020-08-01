@@ -34,8 +34,8 @@ batch_size = 16
 # augmentation configuration used for training
 train_datagen = ImageDataGenerator(
         rescale = 1./255,
-        shear_range = 0.2,
-        zoom_range = 0.2,
+        shear_range = 0.1,
+        zoom_range = 0.1,
         horizontal_flip = True)
 
 # augmentation configuration for testing: only rescaling
