@@ -60,4 +60,4 @@ model.fit(train_generator,
           batch_size=16,
           validation_data=validation_generator)
 
-model.save_weights('Output/glioma_tumor')
+model.save_weights('Output/')
