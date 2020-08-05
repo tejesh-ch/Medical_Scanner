@@ -63,4 +63,10 @@ model.fit(train_generator,
           batch_size=16,
           validation_data=validation_generator)
 
-model.save_weights('MRI_Testing_Output/')
+model_json = model.to_json()
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+
+# serialize weights to HDF5
+model.save("model.h5")
+print("Saved model to disk")
